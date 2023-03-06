@@ -20,7 +20,7 @@ const Blog = () => {
   };
 
   return (
-    <div className="w-screen px-2 bg-[#E6E6E6] pt-16">
+    <div className="w-screen px-2 bg-[#E6E6E6] pt-16 flex flex-col pb-12">
       <div className="flex justify-between items-center mx-auto max-w-[1400px]">
         <p className=" text-[28px] sm:text-[30px]  leading-[44px] sm:leading-[48px] text-[#1f1d21] font-bold">
           NEWS
@@ -61,6 +61,9 @@ const Blog = () => {
             </div>
           );
         })}
+      </div>
+      <div className="text-red self-end flex gap-2 border-b border-red">
+        <p> More news</p> <img src="../assets/arrow.svg" alt="" />
       </div>
     </div>
   );
