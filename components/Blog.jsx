@@ -43,7 +43,7 @@ const Blog = () => {
           return (
             <div
               key={i}
-              className="w-[247px] md:max-w-[434px] hover:shadow-medium hover:cursor-pointer duration-500 group max-h-[460px] pb-8 mb-10 min-[470px]:w-[60%] sm:w-[45%] lg:w-[26%] flex-shrink-0 mr-4 rounded-[4px] border border-[#E6E6E6] bg-white"
+              className="w-[247px]  md:max-w-[434px] hover:shadow-med hover:cursor-pointer duration-500 group max-h-[460px] pb-8 mb-10 min-[470px]:w-[60%] sm:w-[45%] lg:w-[26%] flex-shrink-0 mr-4 rounded-[4px] border border-[#E6E6E6] bg-white"
             >
               <div className="">
                 <img
