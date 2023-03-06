@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Blog from "../components/Blog";
+import Current from "../components/Current";
 import Footer from "../components/Footer";
+import GoTo from "../components/GoTo";
 import Grid from "../components/Grid";
 import Navbar from "../components/Navbar";
 
@@ -22,7 +24,9 @@ export default function Home() {
           <p>Feedback</p>
         </div> */}
         <Grid />
+        <Current />
         <Blog />
+        <GoTo />
         <Footer />
       </div>
     </div>

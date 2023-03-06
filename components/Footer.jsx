@@ -31,10 +31,10 @@ const Footer = () => {
   const [tabThree, setTabThree] = useState(1);
   const [tabFour, setTabFour] = useState(1);
 
-  const index = 0;
-  const two = 0;
-  const three = 0;
-  const four = 0;
+  const index = 1;
+  const two = 1;
+  const three = 1;
+  const four = 1;
 
   return (
     // desktop
@@ -415,9 +415,24 @@ const Footer = () => {
                   { title: "Cookie settings", link: "cookie" },
                 ].map((item, i) => {
                   return (
-                    <p key={i} className="text-[12.48px]">
-                      {item.title}
-                    </p>
+                    <div
+                      key={i}
+                      className={` whitespace-nowrap text-[12.48px] 
+                       
+                     `}
+                    >
+                      {i === 0 ? (
+                        <>
+                          <p>{item.title}</p>{" "}
+                          <br
+                            className="sm:hidden
+                          "
+                          />
+                        </>
+                      ) : (
+                        <p>{item.title}</p>
+                      )}
+                    </div>
                   );
                 })}
               </div>
