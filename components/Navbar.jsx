@@ -147,7 +147,7 @@ const Navbar = () => {
               {/* <Script type="text/javascript" src="../assets/menu.js" /> */}
 
               <div className="flex gap-4 items-center lg:hidden bg-gray p-2 text-white relative">
-                <p>Menu</p>
+                <p className="hidden sm:block">Menu</p>
                 <div
                   onClick={() => {
                     setMenu(!menu);
