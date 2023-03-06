@@ -47,6 +47,7 @@ export default function Grid() {
                   <h3 className="text-red font-bold font-sans">{item.title}</h3>
                   <p className="text-[#575757] rounded-[2px]">{item.text}</p>
                 </div>
+                <img src="../assets/arrow.svg" alt="" />
               </div>
             );
           })}

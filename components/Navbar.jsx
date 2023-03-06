@@ -3,7 +3,13 @@ import Script from "next/script";
 import Wrapper from "./Wrapper";
 import localFont from "@next/font/local";
 import { RxCross1 } from "react-icons/rx";
-import { BsSearch } from "react-icons/bs";
+import {
+  BsChevronDown,
+  BsChevronLeft,
+  BsChevronRight,
+  BsSearch,
+} from "react-icons/bs";
+import Link from "next/link";
 
 const sourceSans = localFont({
   src: [
@@ -36,6 +42,7 @@ const Navbar = () => {
   const [active1, setActiveTwo] = useState(0);
   const [active3, setActive3] = useState(0);
   const [active4, setActive4] = useState(0);
+  const [menu, setMenu] = useState(0);
 
   //   for scroll
   useEffect(() => {
@@ -118,11 +125,11 @@ const Navbar = () => {
                     className="w-6 h-5 pl-1"
                   />
                 </div>
-                <div className="flex items-center gap-2">
-                  <p className="whitespace-nowrap hidden md:block">
+                <div className="flex items-center gap-2 cursor-pointer group">
+                  <p className="whitespace-nowrap hidden md:block group-hover:underline group-hover:underline-offset-4">
                     Compare programmes
                   </p>
-                  <img src="../assets/heart.svg" alt="" className="w-8 h-8" />
+                  <img src="../assets/heart.svg" alt="" className="w-8 h-8 " />
                 </div>
               </div>
               <div className="border flex lg:hidden rounded-sm border-black p-2 h-fit">
@@ -134,19 +141,53 @@ const Navbar = () => {
                   className="w-7 h-6 pl-1"
                 />
               </div>
-              <div className="border rounded-sm border-black py-2 px-3 h-fit">
+              <div className="border rounded-sm hover:shadow-small cursor-pointer border-black py-2 px-3 h-fit">
                 <p>NL</p>
               </div>
               {/* <Script type="text/javascript" src="../assets/menu.js" /> */}
 
-              <div className="flex gap-4 items-center lg:hidden bg-gray p-2 text-white">
-                <p className="hidden md:block">Menu</p>
-                <div id="nav-icon3" className="-mt-3 ">
+              <div className="flex gap-4 items-center lg:hidden bg-gray p-2 text-white relative">
+                <p>Menu</p>
+                <div
+                  onClick={() => {
+                    setMenu(!menu);
+                  }}
+                  id="nav-icon3"
+                  className="-mt-3 "
+                >
                   <span className="one"></span>
                   <span className="two"></span>
                   <span className="three"></span>
                   <span className="four"></span>
                 </div>
+                {/* menu */}
+
+                {menu ? (
+                  <div
+                    className={
+                      menu
+                        ? `w-screen  border-b top-20 border-neutral-300 bg-white fixed mx-auto h-fit transition-all ease-in-out duration-300  inset-x-0 z-[10000000] overflow-hidden`
+                        : "fixed h-0  overflow-hidden mx-auto"
+                    }
+                  >
+                    {[1, 2, 3, 4, 5].map((item, i) => {
+                      return (
+                        <div className="text-black flex" key={i}>
+                          <button
+                            className={`w-10 ${
+                              menu ? "bg-neutral-400" : "bg-white"
+                            } flex justify-center items-center h-10 border-r-white border-r`}
+                          >
+                            <BsChevronRight />
+                          </button>
+                          <p>Edu</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
@@ -167,10 +208,15 @@ const Navbar = () => {
             onMouseLeave={() => setActiveTab(0)}
             className={`text-xl font-extralight`}
           >
-            <p>Education</p>
+            <p
+              className="hover:underline hover:underline-offset-[20px] hover:text-red"
+              // className="hover:underline hover:underline-offset-[20px] hover:text-red"
+            >
+              Education
+            </p>
             {/* dropdown */}
             {activeTab ? (
-              <ul className="flex flex-col gap-2 absolute pt-4 z-[100000] cursor-pointer bg-neutral-100 px-10">
+              <ul className="flex flex-col gap-2 absolute mt-4 pt-3 z-[100000] cursor-pointer bg-neutral-100 px-10">
                 {[
                   "Bachelor's",
                   "Master's",
@@ -196,10 +242,12 @@ const Navbar = () => {
             onMouseLeave={() => setActive4(0)}
             className={`text-xl font-extralight`}
           >
-            <p>About The UvA</p>
+            <p className="hover:underline hover:underline-offset-[20px] hover:text-red">
+              About The UvA
+            </p>
             {/* dropdown */}
             {active4 ? (
-              <ul className="flex flex-col gap-2 absolute pt-4 z-[100000] cursor-pointer bg-neutral-100 px-10">
+              <ul className="flex flex-col gap-2 mt-4 pt-3 absolute  z-[100000] cursor-pointer bg-neutral-100 px-10">
                 {[
                   "Bachelor's",
                   "Master's",
@@ -225,10 +273,12 @@ const Navbar = () => {
             onMouseLeave={() => setActiveTwo(0)}
             className={`text-xl font-extralight`}
           >
-            <p>News & Calendar</p>
+            <p className="hover:underline hover:underline-offset-[20px] hover:text-red">
+              News & Calendar
+            </p>
             {/* dropdown */}
             {active1 ? (
-              <ul className="flex flex-col gap-2 absolute pt-4 z-[100000] cursor-pointer bg-neutral-100 px-10">
+              <ul className="flex flex-col gap-2 mt-4 pt-3 absolute  z-[100000] cursor-pointer bg-neutral-100 px-10">
                 {[
                   "Bachelor's",
                   "Master's",
@@ -254,10 +304,12 @@ const Navbar = () => {
             onMouseLeave={() => setActive3(0)}
             className={`text-xl font-extralight`}
           >
-            <p>Research</p>
+            <p className="hover:underline hover:underline-offset-[20px] hover:text-red">
+              Research
+            </p>
             {/* dropdown */}
             {active3 ? (
-              <ul className="flex flex-col gap-2 absolute pt-4 z-[100000] cursor-pointer bg-neutral-100 px-10">
+              <ul className="flex flex-col gap-2 mt-4 pt-3 absolute  z-[100000] cursor-pointer bg-neutral-100 px-10">
                 {[
                   "Bachelor's",
                   "Master's",
@@ -279,7 +331,9 @@ const Navbar = () => {
             )}
           </div>{" "}
           <div className={`text-xl font-extralight`}>
-            <p>Library</p>
+            <p className="hover:underline hover:underline-offset-[20px] hover:text-red">
+              Library
+            </p>
           </div>
         </div>
       </div>

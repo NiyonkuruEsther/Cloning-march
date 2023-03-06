@@ -1,3 +1,5 @@
+import Wrapper from "./Wrapper";
+
 export default function GoTo() {
   const items = [
     "Alumni",
@@ -8,7 +10,7 @@ export default function GoTo() {
     "Student website",
   ];
   return (
-    <div className="pt-16 pb-24 mx-8 lg:mx-14">
+    <Wrapper styles="pt-16 pb-24">
       <h2 className="text-[28px] sm:text-[30px]  leading-[44px] sm:leading-[48px] text-[#1f1d21] font-bold mb-6">
         Go to:
       </h2>
@@ -24,6 +26,6 @@ export default function GoTo() {
           );
         })}
       </div>
-    </div>
+    </Wrapper>
   );
 }
