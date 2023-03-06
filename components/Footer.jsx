@@ -6,7 +6,7 @@ import { FiChevronDown } from "react-icons/fi";
 import { BsChevronRight } from "react-icons/bs";
 import { GrFacebookOption } from "react-icons/gr";
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
-import { BsYoutube, BsPencilSquare } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 

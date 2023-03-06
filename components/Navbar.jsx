@@ -32,20 +32,10 @@ const Navbar = () => {
       window.removeEventListener("scroll", changescrolled);
     };
   }, [scrolled]);
-  //   useEffect(() => {
-  //     const changesticky = () => {
-  //       window.scrollY >= 10
-  //         ? setSticky(window.scrollY)
-  //         : setSticky(window.scrollY);
-  //     };
-  //     window.addEventListener("scroll", changesticky);
-  //     return () => {
-  //       window.removeEventListener("scroll", changesticky);
-  //     };
-  //   }, [sticky]);
+
   return (
-    <div className="text-gray relative">
-      <div className=" z-[9999] inset-x-0 top-0 fixed bg-white w-full">
+    <div className="text-gray relative ">
+      <div className=" z-[9999] shadow-nav inset-x-0 top-0 fixed bg-white w-full">
         <Wrapper styles={""}>
           <div
             className={`flex justify-between ${
@@ -55,17 +45,23 @@ const Navbar = () => {
             <img
               src="../assets/logo.svg"
               alt="logo"
-              className={`${scrolled < 10 ? "hidden" : "block"} w-8 h-12`}
+              className={`${
+                scrolled < 10 ? "hidden" : "block"
+              } hidden lg:block w-8 h-12`}
             />
             {scrolled < 10 && (
-              <img src="../assets/logo3.svg" alt="logo" className="" />
+              <img
+                src="../assets/logo3.svg"
+                alt="logo"
+                className="hidden lg:block"
+              />
             )}
 
             <div
               className={`flex gap-5 ${sourceSans.variable} font-sourceSans font-bold`}
             >
               <div className="flex gap-6">
-                <div className="flex items-center border h-fit p-2 rounded-md w-[352px] justify-between">
+                <div className="hidden lg:flex items-center border border-neutral-400 h-fit p-2 rounded-md xl:w-[352px] lg:w-fit justify-between">
                   <input
                     type="text"
                     placeholder="Search..."
@@ -83,6 +79,14 @@ const Navbar = () => {
                   <img src="../assets/heart.svg" alt="" className="w-8 h-8" />
                 </div>
               </div>
+              <div className="border flex lg:hidden rounded-sm border-black p-2 h-fit">
+                {" "}
+                <img
+                  src="../assets/search.svg"
+                  alt=""
+                  className="w-7 h-6 pl-1"
+                />
+              </div>
               <div className="border rounded-sm border-black py-2 px-3 h-fit">
                 <p>NL</p>
               </div>
@@ -92,7 +96,7 @@ const Navbar = () => {
         </Wrapper>
       </div>
 
-      <div className=" bg-neutral-100 shadow-lg pt-20">
+      <div className=" bg-neutral-100 shadow-lg pt-20 hidden lg:block">
         <div className="flex gap-12 py-4  px-2  max-w-[1400px] mx-auto">
           {[1, 2, 3, 4, 5].map((item, i) => {
             return (
